@@ -1,41 +1,72 @@
-## Practica 1
+# Practica 3
 ______
 
-### Ejecución del proyecto
+## Ejecución del proyecto
 > Se debe de tener instalado Python en su versión 3.8.6.
 
-> En la carpeta del proyecto ejecutar `> pip install requests`
+> Se debe tener instalado DJango 
 
-> Ejecutar desde la terminal el comando `> python gorest.py`
+> En la carpeta de cada microservicio ejecutar `> pip install djangorestframework`
 
-### Pruebas de funcionalidad
-- Se tiene un menú para mejor manejo de la aplicación
+> Ejecutar desde la terminal, en la carpeta del microservicio por ejecutar, el comando `> python manage.py runserver`
 
-![image](https://user-images.githubusercontent.com/12808348/107155952-1e797880-6941-11eb-85a0-e8dd17ae5be1.png)
+## Pruebas de funcionalidad
 
-- Se selecciona la primera opción para crear el usuario
+### Para el microservicio de CLIENTE 
+- Se ejecuta el comando `> python manage.py runserver`
 
-![image](https://user-images.githubusercontent.com/12808348/107155978-4537af00-6941-11eb-8dbd-bcf092ebbcbc.png)
+![image](https://user-images.githubusercontent.com/12808348/108665006-8b405700-7499-11eb-9dad-7cbebc170e7f.png)
 
-- Se muestra el usuario que se acaba de crear
+- A través de la URL `http://127.0.0.1:8000/estadoPedidoRepartidor/1/` se consulta el estado del pedido por parte del repartidor 
 
-![image](https://user-images.githubusercontent.com/12808348/107156002-5a144280-6941-11eb-8c44-95e981ca89ab.png)
+![image](https://user-images.githubusercontent.com/12808348/108665123-cb073e80-7499-11eb-99a1-4332b884cb3e.png)
 
-- Con la opción dos se modifica el usuario ingresando el correo
+Se observa que se obtiene como respuesta `"El pedido número 1 está en ruta"` siendo el pedido 1 el consultado
 
-![image](https://user-images.githubusercontent.com/12808348/107156054-a65f8280-6941-11eb-9e84-0a1722792d9b.png)
+- A través de la URL `http://127.0.0.1:8000/estadoPedidoRestaurante/1/` se consulta el estado del servicio 
 
-- Se muestra el usuario con el nuevo nombre 
+![image](https://user-images.githubusercontent.com/12808348/108665227-10c40700-749a-11eb-9e06-981d9c9f37b7.png)
 
-![image](https://user-images.githubusercontent.com/12808348/107156104-ecb4e180-6941-11eb-91bd-d48b652cf6a2.png)
+Se observa que se obtiene como respuesta `"El pedido número 1 está en ruta"` siendo el pedido 1 el consultado
 
+- A través de la URL `http://127.0.0.1:8000/solicitarPedido` se hace la solicitud a través del método POST para un pedido 
 
-- Se elimina el usuario 
+![image](https://user-images.githubusercontent.com/12808348/108665344-52ed4880-749a-11eb-8ac1-417ac5156816.png)
 
-![image](https://user-images.githubusercontent.com/12808348/107156128-13731800-6942-11eb-8f68-5464bed94154.png)
+Se hace la solicitud a través del JSON 
 
-- tras buscar al usuario eliminado, muestra mensaje que ya no existe
+`
+{
+"producto": "Bebida",
+"cantidad": "5"
+}`
+    
+Dado sea el caso la solicitud sea correctamente estructurada, se obtiene el mensaje 
 
-![image](https://user-images.githubusercontent.com/12808348/107156150-3271aa00-6942-11eb-956a-8949542c72dd.png)
+![image](https://user-images.githubusercontent.com/12808348/108665424-7f08c980-749a-11eb-8e43-ceb2811e6caf.png)
 
+> ___Nota: Para las demás microservicios, es la misma operativa. Lo único que cambia es JSON enviado por microservicio. En donde: ___
 
+### Para marcarEntrega (repartidor)
+
+{
+"pedido": "1",
+"entrega": "terminado"
+}
+    
+### Para informarEstado (repartidor) e informarPedido (restaurante)
+
+{
+"producto": "Bebida",
+"cantidad": "5",
+"estado": "preparando"
+}
+    
+### Para avisarRepartidor (restaurante)
+
+{
+"producto": "Bebida",
+"cantidad": "5",
+"restaurante": "La quinta"
+}
+    
