@@ -128,3 +128,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+restaurante/recibirPedido/views.py
+restaurante/informarPedido/views.py
+restaurante/avisarRepartidor/views.py
+repartidor/recibirPedido/views.py
+repartidor/marcarEntrega/views.py
+repartidor/informarEstado/views.py
+cliente/solicitarPedido/views.py
+cliente/estadoPedidoRestaurante/views.py
+cliente/estadoPedidoRepartidor/views.py
