@@ -30,7 +30,8 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: example
-    volumes: - dbdata:/var/lib/mysql
+    volumes: 
+      - dbdata:/var/lib/mysql
 
   volumes:
     dbdata:
