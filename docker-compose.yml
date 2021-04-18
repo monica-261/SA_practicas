@@ -13,11 +13,6 @@ services:
       container_name: sonarqube
       depends_on:
         - db
-      volumes:
-        - sonarqube_conf:/opt/sonarqube/conf
-        - sonarqube_data:/opt/sonarqube/data
-        - sonarqube_extensions:/opt/sonarqube/extensions
-        - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
       networks:
         - sonarnet
       command: -Dsonar.web.context=/sonarqube
@@ -43,9 +38,3 @@ services:
     restart: always
     ports:
       - 8080:8080
-
-  volumes:
-    sonarqube_conf:
-    sonarqube_data:
-    sonarqube_extensions:
-    sonarqube_bundled-plugins:
