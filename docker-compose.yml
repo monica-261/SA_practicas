@@ -16,8 +16,8 @@ services:
       - "9000:9000"
       - "9092:9092"
     environment:
-      SONARQUBE_JDBC_USERNAME: sonarqube
-      SONARQUBE_JDBC_PASSWORD: P1b7JBvP8II4
+      SONARQUBE_JDBC_USERNAME: root
+      SONARQUBE_JDBC_PASSWORD: example
       SONARQUBE_JDBC_URL: jdbc:mysql://db:3306/P8?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
 
   db:
