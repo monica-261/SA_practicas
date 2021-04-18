@@ -8,19 +8,28 @@ services:
     ports:
       - "80:80"
 
-  sonarqube:
-    depends_on:
-      - db
-    image: 
-      sonarqube:5.1.1
-    ports:
-      - "9000:9000"
-      - "9092:9092"
-    environment:
-      SONARQUBE_JDBC_USERNAME: root
-      SONARQUBE_JDBC_PASSWORD: example
-      SONARQUBE_JDBC_URL: jdbc:mysql://db:3306/P8?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
-
+sonarqube:
+     image: sonarqube:7.0
+     container_name: sonarqube
+     depends_on:
+       - mysql
+     volumes:
+       - sonarqube_conf:/opt/sonarqube/conf
+       - sonarqube_data:/opt/sonarqube/data
+       - sonarqube_extensions:/opt/sonarqube/extensions
+       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+     networks:
+       - sonarnet
+     command: -Dsonar.web.context=/sonarqube
+     ports:
+       - 9000:9000
+       - 9092:9092
+     environment:
+       - SONAR_JDBC_USERNAME=sonar
+       - SONAR_JDBC_PASSWORD=sonar
+       - SONAR_JDBC_URL=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
+     restart: always
+     
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
