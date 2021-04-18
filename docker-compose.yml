@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.1'
 services:
   web:
     build: .
@@ -32,10 +32,7 @@ services:
       MYSQL_ROOT_PASSWORD: example
     volumes:
       - my-db:/var/lib/mysql
-  # Names our volume
-  volumes:
-    my-db:
-
+  
   adminer:
     image: adminer
     restart: always
