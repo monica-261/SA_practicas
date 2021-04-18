@@ -8,15 +8,15 @@ services:
     ports:
       - "80:80"
 
-sonarqube:
-  image: sonarqube:5.1.1
-  ports:
-   - "9000:9000"
-   - "3306:3306"
-  environment:
-   - SONARQUBE_JDBC_USERNAME=root
-   - SONARQUBE_JDBC_PASSWORD=example
-   - SONARQUBE_JDBC_URL=jdbc:mysql://34.72.13.19:3306/P8?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+  sonarqube:
+    image: sonarqube:5.1.1
+    ports:
+    - "9000:9000"
+    - "3306:3306"
+    environment:
+    - SONARQUBE_JDBC_USERNAME=root
+    - SONARQUBE_JDBC_PASSWORD=example
+    - SONARQUBE_JDBC_URL=jdbc:mysql://34.72.13.19:3306/P8?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
 
   db:
     image: mysql
