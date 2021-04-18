@@ -13,8 +13,6 @@ services:
       container_name: sonarqube
       depends_on:
         - db
-      networks:
-        - sonarnet
       command: -Dsonar.web.context=/sonarqube
       ports:
         - 9000:9000
