@@ -11,8 +11,8 @@ services:
   sonarqube:
     image: sonarqube:5.1.1
     ports:
-    - "9000:9000"
-    - "3306:3306"
+    - "9001:9001"
+    - "3307:3307"
     environment:
     - SONARQUBE_JDBC_USERNAME=root
     - SONARQUBE_JDBC_PASSWORD=example
