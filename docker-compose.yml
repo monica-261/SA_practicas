@@ -11,7 +11,8 @@ services:
   sonarqube:
     depends_on:
       - db
-    image: sonarqube:latest
+    image: 
+      sonarqube:5.1.1
     ports:
       - "9000:9000"
       - "9092:9092"
