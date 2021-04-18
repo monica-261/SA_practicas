@@ -34,9 +34,9 @@ services:
       - dbdata:/var/lib/mysql
 
 
-volumes:
-  data:
-    external: true
+  volumes:
+    data:
+      external: true
 
       
 
