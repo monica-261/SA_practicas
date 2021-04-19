@@ -14,7 +14,7 @@ def cantidad():
     results = cursor.fetchall()
     dic = {}
     for row in results:
-        dic[row[0]]["nombre"]={}
+        dic[row[0]]["nombre"]=[0]
         dic[row[0]]["apellido"] = row[1]
     return jsonify(data=dic)
 
