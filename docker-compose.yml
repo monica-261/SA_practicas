@@ -32,6 +32,8 @@ services:
       MYSQL_ROOT_PASSWORD: example
     volumes:
       - my-db:/var/lib/mysql
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
   # Names our volume
 volumes:
   my-db:
