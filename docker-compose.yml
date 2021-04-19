@@ -32,6 +32,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: P9
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: example
       MYSQL_ROOT_PASSWORD: example
     volumes:
       - ./data:/docker-entrypoint-initdb.d
