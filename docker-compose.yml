@@ -5,6 +5,7 @@ services:
     volumes:
       - .:/todo
     command: python -u app.py
+    container_name: servidorWeb
     ports:
       - "80:80"
 
