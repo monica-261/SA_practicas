@@ -32,8 +32,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-      - my-db:/var/lib/mysql
-      - $HOME/Desktop/PostgreSql-Snippets/infile:/infile
+      - ./data:/docker-entrypoint-initdb.d
+      - ./MySQL/database:/var/lib/mysql:rw
 
   # Names our volume
 volumes:
