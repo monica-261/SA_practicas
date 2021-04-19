@@ -15,7 +15,7 @@ def cantidad():
     dic = {}
     for row in results:
         dic[row[0]]={}
-        dic[row[0]]["apellido"] = row[1]
+        dic[row[0]]["datos"] = row[1]
     return jsonify(data=dic)
 
 
