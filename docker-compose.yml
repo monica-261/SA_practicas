@@ -24,6 +24,7 @@ services:
       restart: always
   db:
     image: mysql
+    container_name: mysqlDB
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
