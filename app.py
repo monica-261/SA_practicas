@@ -4,7 +4,7 @@ from flask import request, render_template, url_for
 import pymysql
 
 app = Flask(__name__)
-db = pymysql.connect(host="34.72.13.19",user="root",password="example",db="P8")
+db = pymysql.connect(host="34.72.13.19",user="root",password="example",db="P9")
 
 @app.route('/api/practica',methods=['GET'])
 def cantidad():
