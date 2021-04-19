@@ -9,20 +9,7 @@ services:
     ports:
       - "80:80"
 
-  sonarqube:
-      image: sonarqube:7.0
-      container_name: sonarqube
-      depends_on:
-        - db
-      command: -Dsonar.web.context=/sonarqube
-      ports:
-        - 9000:9000
-        - 9092:9092
-      environment:
-        - SONAR_JDBC_USERNAME=sonar
-        - SONAR_JDBC_PASSWORD=sonar
-        - SONAR_JDBC_URL=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8
-      restart: always
+
   db:
     image: mysql
     container_name: mysqlDB
