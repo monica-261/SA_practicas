@@ -9,7 +9,7 @@ db = pymysql.connect(host="34.72.13.19",user="root",password="example",db="P9")
 @app.route('/api/practica',methods=['GET'])
 def cantidad():
     cursor = db.cursor()
-    sql = "SELECT * FROM DATOS_P8"
+    sql = "SELECT * FROM DATOS_P9"
     cursor.execute(sql)
     results = cursor.fetchall()
     dic = {}
